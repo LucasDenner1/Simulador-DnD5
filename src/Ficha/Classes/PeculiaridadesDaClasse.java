@@ -2,7 +2,7 @@ package Ficha.Classes;
 
 public interface PeculiaridadesDaClasse {
     
-    public void statusClasse();
+    public String toString();
     public int calcularVida();
 
 }

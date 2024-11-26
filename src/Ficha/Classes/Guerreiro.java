@@ -4,6 +4,7 @@ public class Guerreiro extends Classe implements PeculiaridadesDaClasse{
     
     public Guerreiro(int nivel){
         super("Guerreiro",nivel);
+        calcularVida();
     }
 
     @Override
@@ -12,8 +13,9 @@ public class Guerreiro extends Classe implements PeculiaridadesDaClasse{
     }
 
     
-    public void statusClasse() {
-        System.out.format("Nome: %s\nNivel: %d\nProeficiencia: %d",super.getNome(),super.getNivel(),super.getProeficiencia());
+    public String toString() {
+        String mensagem = String.format("Classe: %s\nNivel: %d\nProeficiencia: %d",super.getNome(),super.getNivel(),super.getProeficiencia());
+        return mensagem;
     }
 
 }
