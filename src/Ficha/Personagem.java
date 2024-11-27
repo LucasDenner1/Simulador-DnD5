@@ -1,4 +1,6 @@
 package Ficha;
+import java.util.Scanner;
+
 import Ficha.Classes.*;
 import Ficha.Racas.*;
 
@@ -19,8 +21,50 @@ public class Personagem {
         this.sabedoria = 0;
         this.carisma = 0;
 
+        distribuirAtributos();
         aplicarBonusRaca();
     }
+
+   public void distribuirAtributos() {
+    Scanner scanner = new Scanner(System.in);
+
+   
+    int[] valores = {15, 14, 13, 12, 10, 8};
+    String[] nomesAtributos = {"Força", "Destreza", "Constituição", "Inteligência", "Sabedoria", "Carisma"};
+    int[] atributosDistribuidos = new int[6]; 
+
+    System.out.println("Distribua os seguintes valores nos atributos: 15, 14, 13, 12, 10, 8.");
+
+    for (int i = 0; i < nomesAtributos.length; i++) {
+        boolean valido = false;
+
+        while (!valido) {
+            System.out.printf("Escolha o valor para %s: ", nomesAtributos[i]);
+            int valor = scanner.nextInt();
+
+            for (int j = 0; j < valores.length; j++) {
+                if (valores[j] == valor) {
+                    atributosDistribuidos[i] = valor;
+                    valores[j] = -1; 
+                    valido = true;
+                    break;
+                }
+            }
+
+            if (!valido) {
+                System.out.println("Valor inválido ou já utilizado. Tente novamente.");
+            }
+        }
+    }
+
+    this.forca = atributosDistribuidos[0];
+    this.destreza = atributosDistribuidos[1];
+    this.constituicao = atributosDistribuidos[2];
+    this.inteligencia = atributosDistribuidos[3];
+    this.sabedoria = atributosDistribuidos[4];
+    this.carisma = atributosDistribuidos[5];
+}
+
 
     public void aplicarBonusRaca(){
         this.forca += raca.bonusForca();
