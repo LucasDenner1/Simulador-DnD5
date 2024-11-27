@@ -1,6 +1,6 @@
 package Ficha.Classes;
 
-abstract class Classe {
+public class Classe {
     private String nome;
     private int nivel;
     private int proeficiencia = 2;
