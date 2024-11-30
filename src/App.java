@@ -1,3 +1,8 @@
+import java.util.Date;
+
+import Batalha.Dados.DadoGeral;
+import Batalha.Dados.DadosDeDano;
+import Ficha.Arma;
 import Ficha.Personagem;
 import Ficha.Classes.Guerreiro;
 import Ficha.Racas.Anao;
@@ -7,8 +12,15 @@ public class App {
         
         Guerreiro guerreiro = new Guerreiro(10);
         Anao anao = new Anao();
-        Personagem personagem = new Personagem("Denner", guerreiro, anao);
+        Arma arma = new Arma("Machado de 2 mãos",0,0,0,1);
+        Personagem personagem = new Personagem("Denner", guerreiro, anao, arma);
 
-        System.out.println(personagem);
+        DadoGeral d20 = new DadoGeral();
+        DadosDeDano dados = new DadosDeDano(arma.getD4(), arma.getD6(), arma.getD8(), arma.getD12());
+
+        System.out.println(d20);
+        System.out.println(dados);
+
+
     }
 }
