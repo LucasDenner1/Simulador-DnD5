@@ -16,7 +16,6 @@ public DadosDeDano(int quantidadeD4, int quantidadeD6, int quantidadeD8, int qua
 
 }
 
-
 public void rolarDados(){
 
     int i;
@@ -27,31 +26,31 @@ public void rolarDados(){
         for(i=0;i<this.quantidadeD4;i++){
             this.danoTotal += d4.nextInt(4) + 1;
         }
-
+        
     }
-    else if(this.quantidadeD6>0){
+    if(this.quantidadeD6>0){
         Random d6 = new Random();
 
         for(i=0;i<this.quantidadeD6;i++){
             this.danoTotal += d6.nextInt(6) + 1;
         }
-
+        
     }
-    else if(this.quantidadeD8>0){
+     if(this.quantidadeD8>0){
         Random d8 = new Random();
 
         for(i=0;i<this.quantidadeD8;i++){
             this.danoTotal += d8.nextInt(8) + 1;
         }
-
+        
     }
-    else if(this.quantidadeD12>0){
+    if(this.quantidadeD12>0){
         Random d12 = new Random();
 
         for(i=0;i<this.quantidadeD12;i++){
             this.danoTotal += d12.nextInt(12) + 1;
         }
-
+        
     }
 
 }
