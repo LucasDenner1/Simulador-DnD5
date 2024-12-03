@@ -8,10 +8,10 @@ public class Classe {
     public Classe(String nome, int nivel){
         this.nome = nome;
         this.nivel = nivel;
-        calculoConstituicao(nivel);
+        calculoProeficiencia(nivel);
     }
 
-    private void calculoConstituicao(int nivel) {
+    private void calculoProeficiencia(int nivel) {
         if (nivel >= 1 && nivel <= 4) {
             this.proeficiencia = 2;
         } else if (nivel >= 5 && nivel <= 8) {
