@@ -114,8 +114,7 @@ public class Personagem {
             "  Inteligência: %d\n" +
             "  Sabedoria: %d\n" +
             "  Carisma: %d\n"+
-            "Arma: %s\n"+
-            "Dano: 1d%d",
+            "Arma: %s\n",
             nome,
             classe.getNome(), 
             raca.getNome(),  
@@ -125,8 +124,7 @@ public class Personagem {
             inteligencia,
             sabedoria,
             carisma,
-            arma.getNome(),
-            arma.getDano()
+            arma.getNome()
         );
     }
 
