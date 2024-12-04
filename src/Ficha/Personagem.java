@@ -1,7 +1,7 @@
 package Ficha;
 
-import Batalha.Dados.DadosDeDano;
 import Ficha.Classes.*;
+import Ficha.Equipamentos.Arma;
 import Ficha.Racas.*;
 
 public class Personagem {
@@ -34,7 +34,6 @@ public class Personagem {
         this.sabedoria += raca.bonusSabedoria();
         this.carisma += raca.bonusCarisma();
     }
-
     
 
     public String getNome() {
