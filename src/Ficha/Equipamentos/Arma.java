@@ -1,4 +1,4 @@
-package Ficha;
+package Ficha.Equipamentos;
 
 public class Arma {
     private String nome;
