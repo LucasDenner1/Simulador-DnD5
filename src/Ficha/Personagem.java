@@ -2,6 +2,7 @@ package Ficha;
 
 import Ficha.Classes.*;
 import Ficha.Equipamentos.Arma;
+import Ficha.Equipamentos.Armadura;
 import Ficha.Racas.*;
 
 public class Personagem {
@@ -9,35 +10,47 @@ public class Personagem {
     private Classe classe;
     private Raca raca;
     private Arma arma;
-    private int forca,destreza,constituicao,inteligencia,sabedoria,carisma;
+    private Armadura armadura;
+    private Atributos atributos;
 
-    public Personagem(String nome, Classe classe, Raca raca, Arma arma) {
+    public Personagem(String nome, Atributos atributos, Classe classe, Raca raca, Arma arma, Armadura armadura) {
         this.nome = nome;
         this.classe = classe;
         this.raca = raca;
         this.arma = arma;
-        this.forca = 0;
-        this.destreza = 0;
-        this.constituicao = 0;
-        this.inteligencia = 0;
-        this.sabedoria = 0;
-        this.carisma = 0;
+        this.armadura = armadura;
+        this.atributos = atributos;
 
         aplicarBonusRaca();
     }
 
     public void aplicarBonusRaca(){
-        this.forca += raca.bonusForca();
-        this.destreza += raca.bonusDestreza();
-        this.constituicao += raca.bonusConstituicao();
-        this.inteligencia += raca.bonusInteligencia();
-        this.sabedoria += raca.bonusSabedoria();
-        this.carisma += raca.bonusCarisma();
+
+        int forca,destreza,constituicao,inteligencia,sabedoria,carisma;
+
+        forca = atributos.getForca() + raca.bonusForca();
+        destreza = atributos.getDestreza() + raca.bonusDestreza();
+        constituicao = atributos.getConstituicao() + raca.bonusConstituicao();
+        inteligencia = atributos.getInteligencia() + raca.bonusInteligencia();
+        sabedoria = atributos.getSabedoria() + raca.bonusSabedoria();
+        carisma = atributos.getCarisma() + raca.bonusCarisma();
+
+        atributos.setForca(forca);
+        atributos.setDestreza(destreza);
+        atributos.setConstituicao(constituicao);
+        atributos.setInteligencia(inteligencia);
+        atributos.setSabedoria(sabedoria);
+        atributos.setCarisma(carisma);
+
     }
     
 
     public String getNome() {
         return nome;
+    }
+
+    public Atributos getAtributos(){
+        return atributos;
     }
 
     public Classe getClasse() {
@@ -51,53 +64,9 @@ public class Personagem {
     public Arma getArma() {
         return arma;
     }
-    
-    public int getForca() {
-        return forca;
-    }
-
-    public void setForca(int forca) {
-        this.forca = forca;
-    }
-
-    public int getDestreza() {
-        return destreza;
-    }
-
-    public void setDestreza(int destreza) {
-        this.destreza = destreza;
-    }
-
-    public int getConstituicao() {
-        return constituicao;
-    }
-    
-    public void setConstituicao(int constituicao) {
-        this.constituicao = constituicao;
-    }
-
-    public int getInteligencia() {
-        return inteligencia;
-    }
-
-    public void setInteligencia(int inteligencia) {
-        this.inteligencia = inteligencia;
-    }
-
-    public int getSabedoria() {
-        return sabedoria;
-    }
-
-    public void setSabedoria(int sabedoria) {
-        this.sabedoria = sabedoria;
-    }
-
-    public int getCarisma() {
-        return carisma;
-    }
-
-    public void setCarisma(int carisma) {
-        this.carisma = carisma;
+ 
+    public Armadura getArmadura() {
+        return armadura;
     }
 
     @Override
@@ -113,19 +82,24 @@ public class Personagem {
             "  Inteligência: %d\n" +
             "  Sabedoria: %d\n" +
             "  Carisma: %d\n"+
-            "Arma: %s\n",
+            "Arma: %s\n"+
+            "Armadura: %s\n"+
+            "CA: %d",
             nome,
             classe.getNome(), 
             raca.getNome(),  
-            forca,
-            destreza,
-            constituicao,
-            inteligencia,
-            sabedoria,
-            carisma,
-            arma.getNome()
+            atributos.getForca(),
+            atributos.getDestreza(),
+            atributos.getConstituicao(),
+            atributos.getInteligencia(),
+            atributos.getSabedoria(),
+            atributos.getCarisma(),
+            arma.getNome(),
+            armadura.getNome(),
+            armadura.getClasseDeArmadura()
         );
     }
+
 
     
 }
