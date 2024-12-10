@@ -14,14 +14,15 @@ public class App {
 
         Guerreiro guerreiro = new Guerreiro(10);
         Anao anao = new Anao();
-        Arma arma = new Arma("Machado de 2 mãos",0,0,0,1);
+        Arma arma = new Arma("Machado de 2 mãos",1,0,0,0,1);
         Armadura armadura = new Armadura("Couro Batido", 12, 2);
         Personagem personagem = new Personagem("Denner",atributos, guerreiro, anao, arma, armadura);
 
         DadoGeral d20 = new DadoGeral();
         DadosDeDano dados = new DadosDeDano(arma.getD4(), arma.getD6(), arma.getD8(), arma.getD12());
 
-        System.out.println(personagem);
+        System.out.println(dados);
+    
         
     }
 }

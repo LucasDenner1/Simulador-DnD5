@@ -3,8 +3,9 @@ package Ficha.Equipamentos;
 public class Arma {
     private String nome;
     private int quantidadeD4,quantidadeD6,quantidadeD8,quantidadeD12;
+    private int tipoArma;
 
-    public Arma(String nome, int d4, int d6, int d8, int d12) {
+    public Arma(String nome, int tipoArma, int d4, int d6, int d8, int d12 ) {
         this.nome = nome;
         this.quantidadeD4 = d4;
         this.quantidadeD6 = d6;
